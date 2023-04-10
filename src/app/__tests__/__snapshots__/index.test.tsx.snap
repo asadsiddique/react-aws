@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render and match the snapshot 1`] = `
+<BrowserRouter>
+  <Helmet
+    defaultTitle="Stock"
+    defer={true}
+    encodeSpecialCharacters={true}
+    htmlAttributes={
+      Object {
+        "lang": "en",
+      }
+    }
+    prioritizeSeoTags={false}
+    titleTemplate="%s - Stock"
+  >
+    <meta
+      content="A Stock application"
+      name="description"
+    />
+  </Helmet>
+  <Routes>
+    <Route
+      element={<Unknown />}
+      path="/"
+    />
+    <Route
+      element={<Unknown />}
+      path="*"
+    />
+  </Routes>
+  <Memo(l) />
+</BrowserRouter>
+`;
