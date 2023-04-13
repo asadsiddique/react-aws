@@ -15,22 +15,28 @@ import { GlobalStyle } from 'styles/global-styles';
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 
+// new code lines
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+// import React, { useState } from 'react';
+import logo from './logo.svg';
+// import './App.css';
+import 'styles/App.css';
+import { Login } from './Login';
+import { Register } from './Register';
 export function App() {
-  return (
-    <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - Stock"
-        defaultTitle="Stock"
-        htmlAttributes={{ lang: 'en' }}
-      >
-        <meta name="description" content="A Stock application" />
-      </Helmet>
+  const [currentForm, setCurrentForm] = React.useState('login');
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <GlobalStyle />
-    </BrowserRouter>
+  const toggleForm = formName => {
+    setCurrentForm(formName);
+  };
+
+  return (
+    <div className="App">
+      {currentForm === 'login' ? (
+        <Login onFormSwitch={toggleForm} />
+      ) : (
+        <Register onFormSwitch={toggleForm} />
+      )}
+    </div>
   );
 }
